@@ -1,0 +1,551 @@
+[
+    {
+        "id": "cc5806d27ba0c7a2",
+        "type": "tab",
+        "label": "Flux 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "c37deb87175d2370",
+        "type": "MySQLdatabase",
+        "name": "mysql",
+        "host": "127.0.0.1",
+        "port": "3306",
+        "db": "projet72h",
+        "tz": "",
+        "charset": "UTF8"
+    },
+    {
+        "id": "247e851f7eba4db4",
+        "type": "MySQLdatabase",
+        "name": "",
+        "host": "127.0.0.1",
+        "port": "3306",
+        "db": "projet72h",
+        "tz": "",
+        "charset": "UTF8"
+    },
+    {
+        "id": "099d3d5d3cae3995",
+        "type": "ui_tab",
+        "name": "Tour de Séchage de fruits",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "5259303b0818483a",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "280517d11483eb41",
+        "type": "ui_group",
+        "name": "Dashboard tour",
+        "tab": "099d3d5d3cae3995",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "f7ee13f4d481b66f",
+        "type": "serial-port",
+        "name": "Arduino",
+        "serialport": "/dev/ttyACM0",
+        "serialbaud": "9600",
+        "databits": 8,
+        "parity": "none",
+        "stopbits": 1,
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": 10000
+    },
+    {
+        "id": "ce318b290491f6f5",
+        "type": "mysql",
+        "z": "cc5806d27ba0c7a2",
+        "mydb": "247e851f7eba4db4",
+        "name": "",
+        "x": 240,
+        "y": 560,
+        "wires": [
+            [
+                "63ce277e0b037ff2"
+            ]
+        ]
+    },
+    {
+        "id": "1128feb0471299e1",
+        "type": "inject",
+        "z": "cc5806d27ba0c7a2",
+        "name": "SELECT ALL",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "select * from capteurs_info;",
+        "payload": "",
+        "payloadType": "str",
+        "x": 80,
+        "y": 560,
+        "wires": [
+            [
+                "ce318b290491f6f5"
+            ]
+        ]
+    },
+    {
+        "id": "0af789112ecc67f9",
+        "type": "mysql",
+        "z": "cc5806d27ba0c7a2",
+        "mydb": "247e851f7eba4db4",
+        "name": "",
+        "x": 240,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "153b89ca3e4e8df0",
+        "type": "inject",
+        "z": "cc5806d27ba0c7a2",
+        "name": "USE",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "USE projet72h;",
+        "x": 90,
+        "y": 200,
+        "wires": [
+            [
+                "0af789112ecc67f9"
+            ]
+        ]
+    },
+    {
+        "id": "1aef4605758c0b7a",
+        "type": "inject",
+        "z": "cc5806d27ba0c7a2",
+        "name": "INSERT",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "USE projet72h; INSERT INTO capteurs_info (date,capteurs_temp,capteurs_humide)  VALUES (UNIX_TIMESTAMP(),23,0);",
+        "x": 440,
+        "y": 120,
+        "wires": [
+            [
+                "d1a298c82fe00b89"
+            ]
+        ]
+    },
+    {
+        "id": "d1a298c82fe00b89",
+        "type": "mysql",
+        "z": "cc5806d27ba0c7a2",
+        "mydb": "247e851f7eba4db4",
+        "name": "",
+        "x": 680,
+        "y": 180,
+        "wires": [
+            [
+                "ef330ee3ad4f89cf"
+            ]
+        ]
+    },
+    {
+        "id": "95ef20d1e6d1093c",
+        "type": "ui_chart",
+        "z": "cc5806d27ba0c7a2",
+        "name": "",
+        "group": "280517d11483eb41",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "Information de température",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "50",
+        "removeOlder": "30",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": true,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 840,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ef330ee3ad4f89cf",
+        "type": "debug",
+        "z": "cc5806d27ba0c7a2",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 940,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "42f3c30978cefa6e",
+        "type": "function",
+        "z": "cc5806d27ba0c7a2",
+        "name": "Get tempéra",
+        "func": "// Vérifier si msg.payload est une chaîne de caractères\nif (typeof msg.payload === 'string') {\n  try {\n    // Convertir la chaîne en tableau JSON\n    msg.payload = JSON.parse(msg.payload);\n  } catch (e) {\n    // En cas d'erreur de conversion, définir msg.payload à null\n    msg.payload = null;\n    return msg;\n  }\n}\n\n// Vérifier si msg.payload est un tableau non vide\nif (Array.isArray(msg.payload) && msg.payload.length > 0) {\n  // Trier le tableau par date (du plus récent au plus ancien)\n  msg.payload.sort((a, b) => b.date - a.date);\n  // Extraire la température de l'objet le plus récent\n  msg.payload = msg.payload[0].capteurs_temp;\n} else {\n  // Si le tableau est vide ou non valide, définir une valeur par défaut\n  msg.payload = null;\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 560,
+        "wires": [
+            [
+                "95ef20d1e6d1093c"
+            ]
+        ]
+    },
+    {
+        "id": "63ce277e0b037ff2",
+        "type": "json",
+        "z": "cc5806d27ba0c7a2",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": true,
+        "x": 370,
+        "y": 560,
+        "wires": [
+            [
+                "42f3c30978cefa6e",
+                "d9a439893682f65b"
+            ]
+        ]
+    },
+    {
+        "id": "500341c17352345b",
+        "type": "inject",
+        "z": "cc5806d27ba0c7a2",
+        "name": "SELECT ALL",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "select * from capteurs_info;",
+        "payload": "",
+        "payloadType": "str",
+        "x": 80,
+        "y": 600,
+        "wires": [
+            [
+                "c1375ef172355e62"
+            ]
+        ]
+    },
+    {
+        "id": "c1375ef172355e62",
+        "type": "mysql",
+        "z": "cc5806d27ba0c7a2",
+        "mydb": "247e851f7eba4db4",
+        "name": "",
+        "x": 240,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d9a439893682f65b",
+        "type": "function",
+        "z": "cc5806d27ba0c7a2",
+        "name": "Get humid",
+        "func": "// Vérifier si msg.payload est une chaîne de caractères\nif (typeof msg.payload === 'string') {\n  try {\n    // Convertir la chaîne en tableau JSON\n    msg.payload = JSON.parse(msg.payload);\n  } catch (e) {\n    // En cas d'erreur de conversion, définir msg.payload à null\n    msg.payload = null;\n    return msg;\n  }\n}\n\n// Vérifier si msg.payload est un tableau non vide\nif (Array.isArray(msg.payload) && msg.payload.length > 0) {\n  // Trier le tableau par date (du plus récent au plus ancien)\n  msg.payload.sort((a, b) => b.date - a.date);\n  // Extraire la température de l'objet le plus récent\n  msg.payload = msg.payload[0].capteurs_humide;\n} else {\n  // Si le tableau est vide ou non valide, définir une valeur par défaut\n  msg.payload = null;\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 600,
+        "wires": [
+            [
+                "b1e41732b310dbb9"
+            ]
+        ]
+    },
+    {
+        "id": "b1e41732b310dbb9",
+        "type": "ui_chart",
+        "z": "cc5806d27ba0c7a2",
+        "name": "",
+        "group": "280517d11483eb41",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "Information de d'humidité",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": "30",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": true,
+        "colors": [
+            "#0095ff",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 850,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8be938a57b6b78e1",
+        "type": "serial in",
+        "z": "cc5806d27ba0c7a2",
+        "name": "",
+        "serial": "f7ee13f4d481b66f",
+        "x": 50,
+        "y": 500,
+        "wires": [
+            [
+                "7d673f7f8ccdf2b2"
+            ]
+        ]
+    },
+    {
+        "id": "7d673f7f8ccdf2b2",
+        "type": "function",
+        "z": "cc5806d27ba0c7a2",
+        "name": "Insert mysql arduino",
+        "func": "// Récupérer le message d'entrée\nlet input = msg.payload;\n\n// Extraire les valeurs de temp et humid\nlet temp = input.match(/temp: (\\d+\\.\\d+)/)[1];\nlet humid = input.match(/humid: (\\d+\\.\\d+)/)[1];\n\n// Formater la requête SQL\nlet sqlQuery = `\n    USE projet72h;\n    INSERT INTO capteurs_info (date, capteurs_temp, capteurs_humide)\n    VALUES (UNIX_TIMESTAMP(), ${temp}, ${humid});\n`;\n\n// Passer la requête SQL dans le message\nmsg.topic = sqlQuery;\n\n// Retourner le message\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 520,
+        "wires": [
+            [
+                "601501b48ba0d6ed"
+            ]
+        ]
+    },
+    {
+        "id": "601501b48ba0d6ed",
+        "type": "mysql",
+        "z": "cc5806d27ba0c7a2",
+        "mydb": "247e851f7eba4db4",
+        "name": "",
+        "x": 660,
+        "y": 520,
+        "wires": [
+            [
+                "c9718afc9e72f466"
+            ]
+        ]
+    },
+    {
+        "id": "c9718afc9e72f466",
+        "type": "debug",
+        "z": "cc5806d27ba0c7a2",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 880,
+        "y": 520,
+        "wires": []
+    }
+]
