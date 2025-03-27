@@ -206,8 +206,8 @@
         "topic": "select * from capteurs_info;",
         "payload": "",
         "payloadType": "str",
-        "x": 80,
-        "y": 560,
+        "x": 140,
+        "y": 620,
         "wires": [
             [
                 "ce318b290491f6f5"
@@ -457,8 +457,8 @@
         "z": "cc5806d27ba0c7a2",
         "name": "",
         "serial": "f7ee13f4d481b66f",
-        "x": 50,
-        "y": 500,
+        "x": 130,
+        "y": 480,
         "wires": [
             [
                 "7d673f7f8ccdf2b2"
@@ -472,13 +472,13 @@
         "name": "Insert mysql arduino",
         "func": "// Récupérer le message d'entrée\nlet input = msg.payload;\n\n// Extraire les valeurs de temp et humid\nlet temp = parseFloat(input.match(/temp: (\\d+\\.\\d+)/)[1]);\nlet humid = parseFloat(input.match(/humid: (\\d+\\.\\d+)/)[1]);\n\n// Initialiser capteurs_pbs à 0 (pas de problème)\nlet capteurs_pbs = 0;\n\n// Déterminer la valeur de capteurs_pbs selon les seuils\nif (temp > 40) {\n    capteurs_pbs = 50;  // Code pour température trop haute\n} \nelse if (humid > 80) {\n    capteurs_pbs = 75;  // Code pour humidité trop haute\n}\n\n// Formater la requête SQL\nlet sqlQuery = `\n    USE projet72h;\n    INSERT INTO capteurs_info (date, capteurs_temp, capteurs_humide, capteurs_pbs)\n    VALUES (UNIX_TIMESTAMP(), ${temp}, ${humid}, ${capteurs_pbs});\n`;\n\n// Passer la requête SQL dans le message\nmsg.topic = sqlQuery;\n\n// Retourner le message\nreturn msg;",
         "outputs": 1,
-        "timeout": 0,
+        "timeout": "0",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 460,
-        "y": 520,
+        "x": 360,
+        "y": 460,
         "wires": [
             [
                 "601501b48ba0d6ed"
@@ -494,27 +494,8 @@
         "x": 660,
         "y": 520,
         "wires": [
-            [
-                "c9718afc9e72f466"
-            ]
+            []
         ]
-    },
-    {
-        "id": "c9718afc9e72f466",
-        "type": "debug",
-        "z": "cc5806d27ba0c7a2",
-        "name": "debug 1",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 880,
-        "y": 520,
-        "wires": []
     },
     {
         "id": "d75c49f3c7c08f10",
@@ -533,8 +514,8 @@
         "wires": [
             [
                 "abf30dfe02d684d9",
-                "d3aee445a6759a21",
-                "9fb0f14197b412a5"
+                "9fb0f14197b412a5",
+                "d3aee445a6759a21"
             ]
         ]
     },
@@ -547,7 +528,7 @@
         "order": 0,
         "width": 0,
         "height": 0,
-        "label": "Anomation de fonctionnement ",
+        "label": "Anomalie de fonctionnement ",
         "chartType": "line",
         "legend": "false",
         "xformat": "HH:mm:ss",
@@ -576,7 +557,7 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 1110,
+        "x": 1100,
         "y": 640,
         "wires": [
             []
@@ -587,7 +568,7 @@
         "type": "debug",
         "z": "cc5806d27ba0c7a2",
         "name": "debug 2",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -616,28 +597,56 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 950,
-        "y": 800,
+        "x": 1030,
+        "y": 760,
         "wires": []
     },
     {
         "id": "d3aee445a6759a21",
         "type": "function",
         "z": "cc5806d27ba0c7a2",
-        "name": "function 1",
-        "func": "// Fonction pour traiter les valeurs des capteurs\nif (msg.payload.capteurs_pbs === 50) {\n    return { payload: \"Température trop haute\" };\n} else if (msg.payload.capteurs_pbs === 75) {\n    return { payload: \"Humidité trop haute\" };\n} else {\n    // Retourne null si aucune condition n'est remplie (facultatif)\n    return { payload: \"Fonctionnement Normal\" };\n}",
+        "name": "Txt process",
+        "func": "// Fonction pour traiter les valeurs des capteurs\nif (msg.payload === 50) {\n    return { payload: \"Température trop haute\" };\n} else if (msg.payload === 75) {\n    return { payload: \"Humidité trop haute\" };\n} else {\n    // Retourne null si aucune condition n'est remplie (facultatif)\n    return { payload: \"Fonctionnement Normal\" };\n}",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 700,
-        "y": 780,
+        "x": 730,
+        "y": 800,
         "wires": [
             [
-                "330e9af32cfdcff2"
+                "330e9af32cfdcff2",
+                "ffd66448f5ab4271"
             ]
         ]
+    },
+    {
+        "id": "2e7a2902ef171826",
+        "type": "debug",
+        "z": "cc5806d27ba0c7a2",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1220,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "ffd66448f5ab4271",
+        "type": "serial out",
+        "z": "cc5806d27ba0c7a2",
+        "name": "",
+        "serial": "f7ee13f4d481b66f",
+        "x": 940,
+        "y": 840,
+        "wires": []
     }
 ]
