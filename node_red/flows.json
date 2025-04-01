@@ -47,7 +47,7 @@
         "id": "5259303b0818483a",
         "type": "ui_base",
         "theme": {
-            "name": "theme-light",
+            "name": "theme-dark",
             "lightTheme": {
                 "default": "#0094CE",
                 "baseColor": "#0094CE",
@@ -57,9 +57,10 @@
             },
             "darkTheme": {
                 "default": "#097479",
-                "baseColor": "#097479",
-                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
-                "edited": false
+                "baseColor": "#4289cd",
+                "baseFont": "Lucida Sans Unicode,Lucida Grande,sans-serif",
+                "edited": true,
+                "reset": false
             },
             "customTheme": {
                 "name": "Untitled Theme 1",
@@ -69,16 +70,16 @@
             },
             "themeState": {
                 "base-color": {
-                    "default": "#0094CE",
-                    "value": "#0094CE",
-                    "edited": false
+                    "default": "#097479",
+                    "value": "#4289cd",
+                    "edited": true
                 },
                 "page-titlebar-backgroundColor": {
-                    "value": "#0094CE",
+                    "value": "#4289cd",
                     "edited": false
                 },
                 "page-backgroundColor": {
-                    "value": "#fafafa",
+                    "value": "#111111",
                     "edited": false
                 },
                 "page-sidebar-backgroundColor": {
@@ -86,31 +87,31 @@
                     "edited": false
                 },
                 "group-textColor": {
-                    "value": "#1bbfff",
+                    "value": "#7eafdd",
                     "edited": false
                 },
                 "group-borderColor": {
-                    "value": "#ffffff",
+                    "value": "#555555",
                     "edited": false
                 },
                 "group-backgroundColor": {
-                    "value": "#ffffff",
+                    "value": "#333333",
                     "edited": false
                 },
                 "widget-textColor": {
-                    "value": "#111111",
+                    "value": "#eeeeee",
                     "edited": false
                 },
                 "widget-backgroundColor": {
-                    "value": "#0094ce",
+                    "value": "#4289cd",
                     "edited": false
                 },
                 "widget-borderColor": {
-                    "value": "#ffffff",
+                    "value": "#333333",
                     "edited": false
                 },
                 "base-font": {
-                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                    "value": "Lucida Sans Unicode,Lucida Grande,sans-serif"
                 }
             },
             "angularTheme": {
@@ -124,7 +125,7 @@
         "site": {
             "name": "Node-RED Dashboard",
             "hideToolbar": "false",
-            "allowSwipe": "false",
+            "allowSwipe": "true",
             "lockMenu": "false",
             "allowTempTheme": "true",
             "dateFormat": "DD/MM/YYYY",
@@ -143,11 +144,11 @@
     {
         "id": "280517d11483eb41",
         "type": "ui_group",
-        "name": "Dashboard tour",
+        "name": "Supervision de l'ensemble",
         "tab": "099d3d5d3cae3995",
         "order": 1,
         "disp": true,
-        "width": 6,
+        "width": 20,
         "collapse": false,
         "className": ""
     },
@@ -172,13 +173,103 @@
         "responsetimeout": 10000
     },
     {
+        "id": "378600d75af3be88",
+        "type": "ui_group",
+        "name": "Graphique de fonctionnement",
+        "tab": "014c41e9f8ce6e9d",
+        "order": 2,
+        "disp": true,
+        "width": 20,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "014c41e9f8ce6e9d",
+        "type": "ui_tab",
+        "name": "Information de maintenance",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "d3b72096dfc60e52",
+        "type": "ui_spacer",
+        "z": "cc5806d27ba0c7a2",
+        "name": "spacer",
+        "group": "280517d11483eb41",
+        "order": 1,
+        "width": 6,
+        "height": 1
+    },
+    {
+        "id": "c2184253b9585a95",
+        "type": "ui_spacer",
+        "z": "cc5806d27ba0c7a2",
+        "name": "spacer",
+        "group": "280517d11483eb41",
+        "order": 3,
+        "width": 6,
+        "height": 1
+    },
+    {
+        "id": "e82eaeb648f16460",
+        "type": "ui_spacer",
+        "z": "cc5806d27ba0c7a2",
+        "name": "spacer",
+        "group": "280517d11483eb41",
+        "order": 4,
+        "width": 20,
+        "height": 1
+    },
+    {
+        "id": "4c55ad100768ebd1",
+        "type": "ui_spacer",
+        "z": "cc5806d27ba0c7a2",
+        "name": "spacer",
+        "group": "280517d11483eb41",
+        "order": 5,
+        "width": 6,
+        "height": 1
+    },
+    {
+        "id": "880d614636d868f9",
+        "type": "ui_spacer",
+        "z": "cc5806d27ba0c7a2",
+        "name": "spacer",
+        "group": "280517d11483eb41",
+        "order": 7,
+        "width": 6,
+        "height": 1
+    },
+    {
+        "id": "b4fd099c8e0bbe31",
+        "type": "ui_spacer",
+        "z": "cc5806d27ba0c7a2",
+        "name": "spacer",
+        "group": "280517d11483eb41",
+        "order": 8,
+        "width": 6,
+        "height": 1
+    },
+    {
+        "id": "e6481f558061d9ad",
+        "type": "ui_spacer",
+        "z": "cc5806d27ba0c7a2",
+        "name": "spacer",
+        "group": "280517d11483eb41",
+        "order": 10,
+        "width": 6,
+        "height": 1
+    },
+    {
         "id": "ce318b290491f6f5",
         "type": "mysql",
         "z": "cc5806d27ba0c7a2",
         "mydb": "247e851f7eba4db4",
         "name": "",
-        "x": 240,
-        "y": 560,
+        "x": 320,
+        "y": 500,
         "wires": [
             [
                 "63ce277e0b037ff2"
@@ -207,7 +298,7 @@
         "payload": "",
         "payloadType": "str",
         "x": 140,
-        "y": 620,
+        "y": 500,
         "wires": [
             [
                 "ce318b290491f6f5"
@@ -293,10 +384,10 @@
         "type": "ui_chart",
         "z": "cc5806d27ba0c7a2",
         "name": "",
-        "group": "280517d11483eb41",
-        "order": 0,
-        "width": 0,
-        "height": 0,
+        "group": "378600d75af3be88",
+        "order": 1,
+        "width": 10,
+        "height": 10,
         "label": "Information de température",
         "chartType": "line",
         "legend": "false",
@@ -326,8 +417,8 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 840,
-        "y": 560,
+        "x": 1180,
+        "y": 520,
         "wires": [
             []
         ]
@@ -361,11 +452,12 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 590,
-        "y": 560,
+        "x": 730,
+        "y": 500,
         "wires": [
             [
-                "95ef20d1e6d1093c"
+                "95ef20d1e6d1093c",
+                "8927225d60e5aaca"
             ]
         ]
     },
@@ -377,8 +469,8 @@
         "property": "payload",
         "action": "",
         "pretty": true,
-        "x": 370,
-        "y": 560,
+        "x": 450,
+        "y": 500,
         "wires": [
             [
                 "42f3c30978cefa6e",
@@ -399,11 +491,12 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 590,
-        "y": 600,
+        "x": 730,
+        "y": 400,
         "wires": [
             [
-                "b1e41732b310dbb9"
+                "b1e41732b310dbb9",
+                "529f94456c57cbd1"
             ]
         ]
     },
@@ -412,10 +505,10 @@
         "type": "ui_chart",
         "z": "cc5806d27ba0c7a2",
         "name": "",
-        "group": "280517d11483eb41",
-        "order": 0,
-        "width": 0,
-        "height": 0,
+        "group": "378600d75af3be88",
+        "order": 2,
+        "width": 10,
+        "height": 10,
         "label": "Information de d'humidité",
         "chartType": "line",
         "legend": "false",
@@ -445,8 +538,8 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 850,
-        "y": 600,
+        "x": 1170,
+        "y": 380,
         "wires": [
             []
         ]
@@ -457,8 +550,8 @@
         "z": "cc5806d27ba0c7a2",
         "name": "",
         "serial": "f7ee13f4d481b66f",
-        "x": 130,
-        "y": 480,
+        "x": 170,
+        "y": 320,
         "wires": [
             [
                 "7d673f7f8ccdf2b2"
@@ -478,7 +571,7 @@
         "finalize": "",
         "libs": [],
         "x": 360,
-        "y": 460,
+        "y": 320,
         "wires": [
             [
                 "601501b48ba0d6ed"
@@ -491,8 +584,8 @@
         "z": "cc5806d27ba0c7a2",
         "mydb": "247e851f7eba4db4",
         "name": "",
-        "x": 660,
-        "y": 520,
+        "x": 560,
+        "y": 320,
         "wires": [
             []
         ]
@@ -509,11 +602,10 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 580,
-        "y": 640,
+        "x": 720,
+        "y": 620,
         "wires": [
             [
-                "abf30dfe02d684d9",
                 "9fb0f14197b412a5",
                 "d3aee445a6759a21"
             ]
@@ -524,10 +616,10 @@
         "type": "ui_chart",
         "z": "cc5806d27ba0c7a2",
         "name": "",
-        "group": "280517d11483eb41",
-        "order": 0,
-        "width": 0,
-        "height": 0,
+        "group": "378600d75af3be88",
+        "order": 3,
+        "width": 20,
+        "height": 6,
         "label": "Anomalie de fonctionnement ",
         "chartType": "line",
         "legend": "false",
@@ -557,37 +649,20 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 1100,
-        "y": 640,
+        "x": 1160,
+        "y": 580,
         "wires": [
             []
         ]
-    },
-    {
-        "id": "abf30dfe02d684d9",
-        "type": "debug",
-        "z": "cc5806d27ba0c7a2",
-        "name": "debug 2",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 780,
-        "y": 680,
-        "wires": []
     },
     {
         "id": "330e9af32cfdcff2",
         "type": "ui_text",
         "z": "cc5806d27ba0c7a2",
         "group": "280517d11483eb41",
-        "order": 3,
-        "width": 0,
-        "height": 0,
+        "order": 2,
+        "width": 8,
+        "height": 1,
         "name": "",
         "label": "Status de fonctionnement",
         "format": "{{msg.payload}}",
@@ -597,8 +672,8 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 1030,
-        "y": 760,
+        "x": 1270,
+        "y": 640,
         "wires": []
     },
     {
@@ -613,8 +688,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 730,
-        "y": 800,
+        "x": 1070,
+        "y": 640,
         "wires": [
             [
                 "330e9af32cfdcff2",
@@ -623,30 +698,95 @@
         ]
     },
     {
-        "id": "2e7a2902ef171826",
-        "type": "debug",
-        "z": "cc5806d27ba0c7a2",
-        "name": "debug 1",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1220,
-        "y": 920,
-        "wires": []
-    },
-    {
         "id": "ffd66448f5ab4271",
         "type": "serial out",
         "z": "cc5806d27ba0c7a2",
         "name": "",
         "serial": "f7ee13f4d481b66f",
-        "x": 940,
-        "y": 840,
+        "x": 1220,
+        "y": 680,
         "wires": []
+    },
+    {
+        "id": "8591888c7b4f7ed4",
+        "type": "ui_text",
+        "z": "cc5806d27ba0c7a2",
+        "group": "280517d11483eb41",
+        "order": 6,
+        "width": 8,
+        "height": 1,
+        "name": "",
+        "label": "Température : ",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1300,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "0f80b1abeba6e113",
+        "type": "ui_text",
+        "z": "cc5806d27ba0c7a2",
+        "group": "280517d11483eb41",
+        "order": 9,
+        "width": 8,
+        "height": 1,
+        "name": "",
+        "label": "Humiditée : ",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1290,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "8927225d60e5aaca",
+        "type": "function",
+        "z": "cc5806d27ba0c7a2",
+        "name": "Txt process",
+        "func": "return  { payload : msg.payload + \"°C\"}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1130,
+        "y": 480,
+        "wires": [
+            [
+                "8591888c7b4f7ed4"
+            ]
+        ]
+    },
+    {
+        "id": "529f94456c57cbd1",
+        "type": "function",
+        "z": "cc5806d27ba0c7a2",
+        "name": "Txt process",
+        "func": "return { payload : msg.payload + \" %\"}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1130,
+        "y": 420,
+        "wires": [
+            [
+                "0f80b1abeba6e113"
+            ]
+        ]
     }
 ]
