@@ -2,7 +2,7 @@
 #include <Adafruit_NeoPixel.h>
 #define DHTPIN 2      // Vérifie la bonne broche !
 #define DHTTYPE DHT22
-#define PIN        10
+#define PIN        4
 #define NUMPIXELS 10
 #define DELAYVAL 250
 DHT dht(DHTPIN, DHTTYPE);
